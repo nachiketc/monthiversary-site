@@ -7,20 +7,29 @@
     <link rel="stylesheet" href="styles.css">
     <script>
         function moveButton() {
-            var btn = document.getElementById('no-btn');
-            var randomX = Math.floor(Math.random() * window.innerWidth) - 100;
-            var randomY = Math.floor(Math.random() * window.innerHeight) - 50;
-            btn.style.position = 'absolute';
-            btn.style.left = randomX + 'px';
-            btn.style.top = randomY + 'px';
+            const btn = document.getElementById('no-btn');
+            const randomX = Math.floor(Math.random() * (window.innerWidth - btn.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - btn.offsetHeight));
+            btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function showLoveMessage() {
+            const loveMessage = document.getElementById('love-message');
+            loveMessage.style.display = 'block';
+            setTimeout(() => {
+                location.href = 'collage.html';
+            }, 1500); // Redirect after 1.5 seconds
         }
     </script>
 </head>
 <body>
     <div class="container">
         <h1>Do You Love Me?</h1>
-        <button onclick="location.href='collage.html'">Yes</button>
+        <button onclick="showLoveMessage()">Yes</button>
         <button id="no-btn" onmouseover="moveButton()">No</button>
+        <p id="love-message" style="display: none; font-size: 1.2rem; color: #ff69b4; margin-top: 20px;">
+            Yay! I knew it! ❤️
+        </p>
     </div>
 </body>
 </html>
