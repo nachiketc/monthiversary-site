@@ -1,6 +1,7 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #f4f4f4, #e9f7ef);
     color: #333;
     margin: 0;
     padding: 0;
@@ -9,33 +10,46 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden; /* Prevent scrollbars from appearing due to animations */
 }
 
+/* Main Container */
 .container {
     background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 80%;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    width: 90%;
     max-width: 600px;
+    animation: slideIn 0.8s ease-out;
 }
 
+/* Heading Styling */
 h1 {
     color: #ff6b6b;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Buttons */
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 10px;
     cursor: pointer;
     margin: 10px;
+    font-size: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
     background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 #no-btn {
@@ -46,22 +60,57 @@ button:hover {
     background-color: #ff0000;
 }
 
+/* Image Gallery */
 .gallery img {
     width: 150px;
     height: auto;
     margin: 5px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Stylish Text Section */
 .stylish-text .fancy-text {
     font-size: 24px;
     font-style: italic;
     color: #6a1b9a;
-    text-shadow: 2px 2px #ffcc80;
+    text-shadow: 2px 2px 4px #ffcc80;
     margin-bottom: 10px;
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* GIF Container */
 .gif-container img {
     max-width: 100%;
     height: auto;
-    flex-shrink: 0; /* Prevents images from shrinking */
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
